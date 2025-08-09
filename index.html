@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rampside Shine — Where Clean Takes Off</title>
+<meta name="description" content="Professional aircraft cleaning services in Ohio. ATP pilot owned and operated with expert interior and exterior detailing." />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --nav:#2D3748; 
+    --ink:#1A202C; 
+    --panel:#F7FAFC; 
+    --border:#E2E8F0;
+    --cta:#2D3748; 
+    --muted:#718096;
+    --accent:#94A3B8;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,sans-serif;color:#2D3748;line-height:1.6;background:#fff}
+  .container{width:min(1120px,92%);margin:0 auto}
+
+  /* Nav */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(45,55,72,.95);backdrop-filter:blur(6px)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;color:#fff}
+  .menu a{color:#fff;text-decoration:none;margin-left:1.25rem;font-weight:600;transition:color 0.3s ease}
+  .menu a:hover{color:var(--accent)}
+  .brand{display:flex;align-items:center;gap:.6rem}
+  .brand-logo{height:64px;background:#fff;border-radius:8px;padding:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+  .brand span{color:#fff;font-weight:700;letter-spacing:.02em}
+
+  /* Hero */
+  .hero{min-height:85vh;background-size:cover;background-position:center;position:relative;display:flex;align-items:center;color:#fff}
+  .hero .overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(45,55,72,.3),rgba(45,55,72,.5))}
+  .hero .overlay.dark{background:linear-gradient(135deg,rgba(45,55,72,.5),rgba(45,55,72,.7))}
+  .hero-inner{position:relative;padding:6rem 0}
+  .hero-inner.left{display:flex;flex-direction:column;align-items:flex-start;max-width:600px}
+  .hero-inner.lower{padding:8rem 0 7rem}
+  .hero-inner.center{align-items:center;text-align:center;max-width:800px;margin:0 auto}
+  .hero h1{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1;margin:0 0 1rem;font-size:clamp(40px,6vw,72px);text-shadow:2px 2px 4px rgba(0,0,0,0.3)}
+  .sub{font-size:1.2rem;opacity:.95;margin:.5rem 0 2rem;font-weight:500}
+  .btn{display:inline-block;padding:1rem 2rem;border-radius:8px;border:2px solid transparent;font-weight:700;text-decoration:none;cursor:pointer;transition:all 0.3s ease}
+  .primary{background:var(--cta);color:#fff}
+  .primary:hover{background:#1A202C;transform:translateY(-2px)}
+  .outline{border-color:#fff;color:#fff;background:transparent}
+  .outline:hover{background:#fff;color:var(--cta)}
+
+  /* Badge */
+  .badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.9);color:var(--cta);padding:0.5rem 1rem;border-radius:50px;font-size:0.9rem;font-weight:600;margin-bottom:1rem}
+
+  /* Sections */
+  section{padding:5rem 0}
+  h2{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,48px);margin:0 0 1.5rem;color:var(--ink);text-align:center}
+
+  /* Services */
+  .services{background:var(--panel)}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:3rem}
+  .card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:2rem;box-shadow:0 4px 6px rgba(0,0,0,0.05);transition:all 0.3s ease}
+  .card:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,0,0,0.1)}
+  .card .ico{font-size:2.5rem;margin-bottom:1rem}
+  .card h3{margin:0 0 1rem;font-size:1.4rem;color:var(--ink)}
+  .card ul{margin:0;padding-left:0;list-style:none}
+  .card li{padding:0.4rem 0;color:var(--muted);position:relative;padding-left:1.5rem}
+  .card li:before{content:'✓';position:absolute;left:0;color:#10B981;font-weight:bold}
+
+  /* About */
+  .about{background:#fff}
+  .about-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+  .about h2{text-align:left;margin-bottom:2rem}
+  .about p{font-size:1.1rem;margin-bottom:1.5rem}
+  .about .muted{color:var(--muted);font-style:italic}
+  .about-image{border-radius:16px;overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,0.1)}
+  .about-image img{width:100%;height:auto;display:block}
+
+  /* Why Choose Us */
+  .why-choose{background:var(--panel)}
+  .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem}
+  .feature{background:#fff;border-radius:16px;padding:2rem;text-align:center;box-shadow:0 4px 6px rgba(0,0,0,0.05)}
+  .feature .icon{width:80px;height:80px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:2rem}
+  .feature h3{margin:0 0 1rem;color:var(--ink)}
+
+  /* Contact */
+  .contact{background:var(--cta);color:#fff}
+  .contact h2{color:#fff}
+  .contact-box{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:16px;padding:2rem;backdrop-filter:blur(10px)}
+  .contact p{font-size:1.1rem;margin-bottom:2rem}
+  .contact a{color:#fff;font-weight:600}
+  .form{display:grid;gap:1.5rem}
+  .form label{display:block;font-weight:600;margin-bottom:0.5rem}
+  .form input,.form textarea{width:100%;padding:1rem;border:1px solid rgba(255,255,255,0.3);border-radius:8px;font:inherit;background:rgba(255,255,255,0.1);color:#fff;backdrop-filter:blur(10px)}
+  .form input::placeholder,.form textarea::placeholder{color:rgba(255,255,255,0.7)}
+  .form button{justify-self:start;background:#fff;color:var(--cta);border:none}
+
+  /* Footer */
+  .footer{background:#1A202C;color:#E2E8F0}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:2rem 0}
+  .foot-inner a{color:#E2E8F0;text-decoration:none}
+  .foot-inner a:hover{color:var(--accent)}
+
+  /* Responsive */
+  @media (max-width:980px){ 
+    .cards{grid-template-columns:1fr 1fr} 
+    .about-inner{grid-template-columns:1fr;gap:2rem}
+    .features{grid-template-columns:1fr}
+  }
+  @media (max-width:520px){ 
+    .cards{grid-template-columns:1fr}
+    .hero-inner{padding:4rem 0}
+    .hero h1{font-size:clamp(32px,8vw,48px)}
+    .foot-inner{flex-direction:column;text-align:center}
+    .menu{display:none}
+    .brand-logo{height:48px}
+  }
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#home">
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.png-iTVAT5tWNgOKJ6RpbN2bqV0Lt7WLEN.png" alt="Rampside Shine logo" class="brand-logo" />
+    </a>
+    <nav class="menu">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section id="home" class="hero hero-a" style="background-image:url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/hero-1.jpg-0AyDrG4q4xurab5YjrhvTiD6jh6d6O.png');">
+  <div class="overlay"></div>
+  <div class="container hero-inner left">
+    <h1>Professional Aircraft<br/>Cleaning Services</h1>
+    <p class="sub">Expert interior and exterior aircraft cleaning services in Ohio. Trusted by pilots, operated by an ATP-rated pilot who understands your aircraft's needs.</p>
+    <a href="#contact" class="btn primary">Get Free Quote</a>
+  </div>
+</section>
+
+<section id="services" class="services">
+  <div class="container">
+    <h2>Complete Aircraft Care</h2>
+    <p style="text-align:center;color:var(--muted);font-size:1.1rem;max-width:800px;margin:0 auto 2rem;">From cockpit to cargo hold, we provide comprehensive cleaning services that keep your aircraft looking pristine and maintaining its value.</p>
+    <div class="cards">
+      <article class="card">
+        <div class="ico">✈️</div>
+        <h3>Exterior Cleaning</h3>
+        <ul>
+          <li>Complete aircraft wash and rinse</li>
+          <li>Engine cleaning and degreasing</li>
+          <li>Landing gear cleaning</li>
+          <li>Window and windscreen polishing</li>
+          <li>Paint protection and conditioning</li>
+          <li>Polish & Wax application</li>
+          <li>Ceramic coating services</li>
+        </ul>
+      </article>
+      <article class="card">
+        <div class="ico">🛡️</div>
+        <h3>Interior Detailing</h3>
+        <ul>
+          <li>Cockpit and instrument cleaning</li>
+          <li>Seat and upholstery care</li>
+          <li>Carpet and floor cleaning</li>
+          <li>Window and surface polishing</li>
+          <li>Sanitization and deodorizing</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="hero hero-b" style="background-image:url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/hero-2.jpg-aoU7E7lHBe2wnLAhkSTBcvOPNph9K4.png');">
+  <div class="overlay dark"></div>
+  <div class="container hero-inner center lower">
+    <h1>Where Clean<br/>Takes Off</h1>
+    <p class="sub">Professional aircraft detailing that exceeds expectations</p>
+    <a href="#contact" class="btn outline">Schedule Service</a>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="container about-inner">
+    <div class="copy">
+      <h2>Pilot-Owned, Pilot-Trusted</h2>
+      <p>As an ATP-rated pilot and aircraft owner myself, I understand the importance of maintaining your aircraft to the highest standards. Rampside Shine was founded on the principle that every aircraft deserves professional care from someone who truly understands aviation.</p>
+      <p class="muted">🕒 5+ Years Aircraft cleaning experience</p>
+      <p class="muted">📍 Serving Ohio • 🛡️ Fully Insured • ✈️ ATP Pilot Owned</p>
+    </div>
+    <div class="about-image">
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_3150-XoQfWzYKduTqUo0452QRrw7Ws6lqyY.jpeg" alt="Professional aircraft cleaning service" />
+    </div>
+  </div>
+</section>
+
+<section class="why-choose">
+  <div class="container">
+    <h2>Why Choose Rampside Shine?</h2>
+    <p style="text-align:center;color:var(--muted);font-size:1.1rem;max-width:800px;margin:0 auto 2rem;">Experience the difference of working with a cleaning service that truly understands aircraft.</p>
+    <div class="features">
+      <article class="feature">
+        <div class="icon">🛡️</div>
+        <h3>Aviation Expertise</h3>
+        <p>Our ATP pilot owner understands aircraft systems, materials, and the importance of proper care.</p>
+      </article>
+      <article class="feature">
+        <div class="icon">⭐</div>
+        <h3>Aviation-Grade Products</h3>
+        <p>We exclusively use aviation-grade products and techniques to ensure your aircraft stays pristine and protected.</p>
+      </article>
+      <article class="feature">
+        <div class="icon">🕒</div>
+        <h3>Flexible Scheduling</h3>
+        <p>We work around your flight schedule with convenient appointment times that fit your needs.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="contact-box">
+      <h2>Ready to Schedule Your Aircraft Cleaning?</h2>
+      <p>Contact us today for a free quote. Professional service, competitive pricing, and the peace of mind that comes from working with a fellow pilot.</p>
+      <p>Call/text <a href="tel:+14192048372">(419) 204‑8372</a>, email <a href="mailto:sales@rampsideshine.com">sales@rampsideshine.com</a>, or fill out the form below.</p>
+      <form class="form" action="https://formspree.io/f/mvgqvnjb" method="POST">
+        <label>Name<input type="text" name="name" placeholder="Your name" required></label>
+        <label>Email<input type="email" name="email" placeholder="your@email.com" required></label>
+        <label>Phone<input type="tel" name="phone" placeholder="(419) 555-0123"></label>
+        <label>Aircraft Type & Location<textarea name="message" rows="3" placeholder="Tell us about your aircraft and where it's located..." required></textarea></label>
+        <button class="btn primary" type="submit">Get Free Quote</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container foot-inner">
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.png-iTVAT5tWNgOKJ6RpbN2bqV0Lt7WLEN.png" alt="Rampside Shine" style="height:24px;" />
+      <span>© 2024 Rampside Shine. All rights reserved.</span>
+    </div>
+    <div>
+      <a href="#">Privacy Policy</a> • 
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Add scroll effect to navbar
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.nav');
+    if (window.scrollY > 100) {
+      nav.style.background = 'rgba(45,55,72,.98)';
+    } else {
+      nav.style.background = 'rgba(45,55,72,.95)';
+    }
+  });
+</script>
+</body>
+</html>
